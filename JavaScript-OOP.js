@@ -179,3 +179,34 @@ console.log(temp.fahrenheit); // Output: 77
 temp.celsius = 0;
 
 console.log(temp.fahrenheit); // Output: 32
+
+// Topic 4.4: Public Fields, Private Fields (#), and Private Methods
+// #field / #method: Hard private members in ES2022; inaccessible outside class scope
+class BankAccount {
+  publicLabel = "Checking";
+  #balance = 0; // Private field
+
+  constructor(initialDeposit) {
+    this.#balance = initialDeposit;
+  }
+
+  #logTransaction(type, amount) {
+    // Private method
+    return `${type}: $${amount}`;
+  }
+
+  deposit(amount) {
+    this.#balance += amount;
+    return this.#logTransaction("Deposit", amount);
+  }
+
+  getBalance() {
+    return this.#balance;
+  }
+}
+
+const account = new BankAccount(100);
+account.deposit(50);
+
+console.log(account.getBalance()); // Output: 150
+// console.log(account.#balance);  // Output: SyntaxError: Private field '#balance' must be declared in an enclosing class
