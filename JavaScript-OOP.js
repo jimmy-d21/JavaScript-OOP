@@ -66,3 +66,17 @@ const dev = new Person("Bob", "Developer");
 
 console.log(dev.name); // Output: "Bob"
 console.log(dev.getRole()); // Output: "Developer"
+
+// Topic 2.2: Instance Properties vs. Instance Methods in Constructors
+// Instance Methods inside constructor: Creates a new function copy for EVERY instance (high memory)
+function Item(id) {
+  this.id = id; // Instance Property
+  this.getId = function () {
+    return this.id;
+  }; // Instance Method (Duplicates in memory)
+}
+
+const item1 = new Item(1);
+const item2 = new Item(2);
+
+console.log(item1.getId === item2.getId); // Output: false
