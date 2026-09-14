@@ -80,3 +80,20 @@ const item1 = new Item(1);
 const item2 = new Item(2);
 
 console.log(item1.getId === item2.getId); // Output: false
+
+// 3. Prototypes and Prototype-Based Inheritance
+// Topic 3.1: Prototypes and prototype Property
+// Constructor.prototype: Shared storage object for methods accessed by all instances
+function Dog(name) {
+  this.name = name;
+}
+
+Dog.prototype.bark = function () {
+  return `${this.name} barks!`;
+};
+
+const d1 = new Dog("Rex");
+const d2 = new Dog("Buddy");
+
+console.log(d1.bark()); // Output: "Rex barks!"
+console.log(d1.bark === d2.bark); // Output: true
