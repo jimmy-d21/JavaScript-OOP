@@ -50,3 +50,19 @@ const counter = {
 
 console.log(counter.increment()); // Output: 1
 console.log(counter.increment()); // Output: 2
+
+// 2. Constructor Functions
+// Topic 2.1: Constructor Functions & new Keyword
+// Constructor Function: Called with 'new' to create objects; sets 'this' to the new instance
+function Person(name, role) {
+  this.name = name;
+  this.role = role;
+  this.getRole = function () {
+    return this.role;
+  };
+}
+
+const dev = new Person("Bob", "Developer");
+
+console.log(dev.name); // Output: "Bob"
+console.log(dev.getRole()); // Output: "Developer"
