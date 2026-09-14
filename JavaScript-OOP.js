@@ -230,3 +230,25 @@ const myWallet = new Wallet();
 myWallet.addFunds(50);
 
 console.log(myWallet.getFunds()); // Output: 50
+
+// Topic 5.2: Abstraction
+// Abstraction: Exposing simple public interface while hiding complex execution steps internally
+class CoffeeMachine {
+  #boilWater() {
+    return "Water boiled";
+  }
+  #brewGrinds() {
+    return "Coffee extracted";
+  }
+
+  makeCoffee() {
+    // High-level abstracted interface
+    this.#boilWater();
+    this.#brewGrinds();
+    return "Hot Coffee Ready!";
+  }
+}
+
+const machine = new CoffeeMachine();
+
+console.log(machine.makeCoffee()); // Output: "Hot Coffee Ready!"
