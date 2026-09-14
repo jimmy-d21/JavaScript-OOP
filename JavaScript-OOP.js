@@ -274,3 +274,30 @@ const kitty = new Cat("Whiskers");
 
 console.log(kitty.eat()); // Output: "Whiskers is eating."
 console.log(kitty.meow()); // Output: "Whiskers says meow!"
+
+// Topic 5.4: Polymorphism
+// Polymorphism: Calling same method name on different class objects yields distinct behaviors
+class Shape {
+  draw() {
+    return "Drawing a generic shape";
+  }
+}
+
+class Circle extends Shape {
+  draw() {
+    return "Drawing a Circle ◯";
+  }
+}
+
+class Square extends Shape {
+  draw() {
+    return "Drawing a Square ▢";
+  }
+}
+
+const shapes = [new Circle(), new Square(), new Shape()];
+
+shapes.forEach((shape) => console.log(shape.draw()));
+// Output: "Drawing a Circle ◯"
+// Output: "Drawing a Square ▢"
+// Output: "Drawing a generic shape"
