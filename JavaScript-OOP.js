@@ -437,3 +437,16 @@ const rec = new Record("REC_99");
 
 console.log(rec.getId()); // Output: "REC_99"
 console.log(Object.keys(rec)); // Output: [] (Invisible in standard key enumerations)
+
+// Topic 7.5: instanceof and Object.hasOwn()
+// instanceof: Checks prototype chain; Object.hasOwn(obj, key): Modern safe check for direct own property
+class Admin {}
+const admin = new Admin();
+
+const parent = { inherited: true };
+const child = Object.create(parent);
+child.own = true;
+
+console.log(admin instanceof Admin); // Output: true
+console.log(Object.hasOwn(child, "own")); // Output: true
+console.log(Object.hasOwn(child, "inherited")); // Output: false
