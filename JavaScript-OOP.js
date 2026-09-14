@@ -124,3 +124,20 @@ const UserProto = {
 const user2 = Object.create(UserProto).init("Charlie");
 
 console.log(user2.greeting()); // Output: "Hi, I am Charlie"
+
+// 4. JavaScript Classes
+// Topic 4.1: class Declaration, constructor(), and Instance Methods
+// class: Clean ES6 syntax for constructor functions and prototype method delegation
+class Vehicle {
+  constructor(type) {
+    this.type = type;
+  }
+
+  getType() {
+    return `Vehicle type: ${this.type}`;
+  }
+}
+
+const car2 = new Vehicle("Car");
+
+console.log(car2.getType()); // Output: "Vehicle type: Car"
