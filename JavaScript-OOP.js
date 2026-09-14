@@ -10,3 +10,18 @@ const car = {
 
 console.log(car.make); // Output: "Toyota"
 console.log(car.start()); // Output: "Engine started"
+
+// Topic 1.2: Objects, Properties, Methods, and Object Literals
+
+// Object Literal: Key-value container; properties hold data, methods hold functions
+const user = {
+  name: "Alice", // Property
+  age: 25, // Property
+  greet() {
+    // Method
+    return "Hello!";
+  },
+};
+
+console.log(user.name); // Output: "Alice"
+console.log(user.greet()); // Output: "Hello!"
