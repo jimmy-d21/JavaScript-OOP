@@ -37,3 +37,16 @@ delete book.title;
 console.log(book.author); // Output: "John Doe"
 console.log(book["page-count"]); // Output: 300
 console.log(book.title); // Output: undefined
+
+// Topic 1.4: The this Keyword (Object Context)
+// this: Refers to the current execution context/object executing the method
+const counter = {
+  count: 0,
+  increment() {
+    this.count += 1;
+    return this.count;
+  },
+};
+
+console.log(counter.increment()); // Output: 1
+console.log(counter.increment()); // Output: 2
