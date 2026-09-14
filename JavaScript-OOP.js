@@ -450,3 +450,18 @@ child.own = true;
 console.log(admin instanceof Admin); // Output: true
 console.log(Object.hasOwn(child, "own")); // Output: true
 console.log(Object.hasOwn(child, "inherited")); // Output: false
+
+// Topic 7.6: Property Descriptors & Meta-Programming (Object.defineProperty())
+// Object.defineProperty(): Fine-grained property meta-configuration (writable, enumerable, configurable)
+const config = {};
+
+Object.defineProperty(config, "API_KEY", {
+  value: "SECRET_123",
+  writable: false, // Read-only
+  enumerable: false, // Hidden from loops
+});
+
+config.API_KEY = "HACKED"; // Silent fail (or error in strict mode)
+
+console.log(config.API_KEY); // Output: "SECRET_123"
+console.log(Object.keys(config)); // Output: []
