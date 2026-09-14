@@ -252,3 +252,25 @@ class CoffeeMachine {
 const machine = new CoffeeMachine();
 
 console.log(machine.makeCoffee()); // Output: "Hot Coffee Ready!"
+
+// Topic 5.3: Inheritance
+// Inheritance: Deriving properties and methods from parent class to child class
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+  eat() {
+    return `${this.name} is eating.`;
+  }
+}
+
+class Cat extends Animal {
+  meow() {
+    return `${this.name} says meow!`;
+  }
+}
+
+const kitty = new Cat("Whiskers");
+
+console.log(kitty.eat()); // Output: "Whiskers is eating."
+console.log(kitty.meow()); // Output: "Whiskers says meow!"
