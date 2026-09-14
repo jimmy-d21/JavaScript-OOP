@@ -210,3 +210,23 @@ account.deposit(50);
 
 console.log(account.getBalance()); // Output: 150
 // console.log(account.#balance);  // Output: SyntaxError: Private field '#balance' must be declared in an enclosing class
+
+// 5. The Four Main OOP Principles
+// Topic 5.1: Encapsulation
+// Encapsulation: Grouping data + behavior together and hiding internal implementation details
+class Wallet {
+  #funds = 0;
+
+  addFunds(amount) {
+    if (amount > 0) this.#funds += amount;
+  }
+
+  getFunds() {
+    return this.#funds;
+  }
+}
+
+const myWallet = new Wallet();
+myWallet.addFunds(50);
+
+console.log(myWallet.getFunds()); // Output: 50
