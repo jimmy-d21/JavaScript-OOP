@@ -154,3 +154,28 @@ class MathUtils {
 
 console.log(MathUtils.PI); // Output: 3.14159
 console.log(MathUtils.calculateArea(10)); // Output: 314.159
+
+// Topic 4.3: Getters and Setters
+// get / set: Binds object property lookup/assignment to custom function execution
+class Temperature {
+  constructor(celsius) {
+    this._celsius = celsius;
+  }
+
+  get fahrenheit() {
+    return (this._celsius * 9) / 5 + 32;
+  }
+
+  set celsius(val) {
+    if (val < -273.15) throw new Error("Below Absolute Zero!");
+    this._celsius = val;
+  }
+}
+
+const temp = new Temperature(25);
+
+console.log(temp.fahrenheit); // Output: 77
+
+temp.celsius = 0;
+
+console.log(temp.fahrenheit); // Output: 32
