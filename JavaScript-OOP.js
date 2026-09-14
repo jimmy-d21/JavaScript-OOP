@@ -97,3 +97,14 @@ const d2 = new Dog("Buddy");
 
 console.log(d1.bark()); // Output: "Rex barks!"
 console.log(d1.bark === d2.bark); // Output: true
+
+// Topic 3.2: The Prototype Chain, Object.getPrototypeOf(), and Object.setPrototypeOf()
+// Prototype Chain: JS looks up prototype chain for missing properties; Object.getPrototypeOf() gets prototype
+const animal = { eats: true };
+const rabbit = { jumps: true };
+
+Object.setPrototypeOf(rabbit, animal);
+
+console.log(rabbit.jumps); // Output: true
+console.log(rabbit.eats); // Output: true (Inherited via Prototype Chain)
+console.log(Object.getPrototypeOf(rabbit) === animal); // Output: true
