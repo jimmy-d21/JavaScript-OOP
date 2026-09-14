@@ -301,3 +301,39 @@ shapes.forEach((shape) => console.log(shape.draw()));
 // Output: "Drawing a Circle ◯"
 // Output: "Drawing a Square ▢"
 // Output: "Drawing a generic shape"
+
+// 6. Class Inheritance Mechanics
+// Topic 6.1: extends, super, Method Overriding, and Multilevel Inheritance
+// extends/super: Extends parent class; super() executes parent constructor/methods; override redefines methods
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+  describe() {
+    return `Person: ${this.name}`;
+  }
+}
+
+class Employee extends Person {
+  constructor(name, salary) {
+    super(name); // Must call parent constructor before using 'this'
+    this.salary = salary;
+  }
+
+  describe() {
+    // Method overriding
+    return `${super.describe()}, Salary: $${this.salary}`;
+  }
+}
+
+class Manager extends Employee {
+  // Multilevel inheritance
+  constructor(name, salary, dept) {
+    super(name, salary);
+    this.dept = dept;
+  }
+}
+
+const mgr = new Manager("Alice", 90000, "Engineering");
+
+console.log(mgr.describe()); // Output: "Person: Alice, Salary: $90000"
