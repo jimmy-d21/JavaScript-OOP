@@ -381,3 +381,19 @@ class Calculator {
 const result = new Calculator(2).add(3).multiply(4).val;
 
 console.log(result); // Output: 20
+
+// Topic 7.2: Factory Functions
+// Factory Function: Returns new objects without using 'new' or 'this' keyword
+function createUser(name, role) {
+  return {
+    name,
+    role,
+    getDetails() {
+      return `${name} is a ${role}`;
+    },
+  };
+}
+
+const user3 = createUser("Dave", "Admin");
+
+console.log(user3.getDetails()); // Output: "Dave is a Admin"
