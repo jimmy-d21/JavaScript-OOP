@@ -397,3 +397,24 @@ function createUser(name, role) {
 const user3 = createUser("Dave", "Admin");
 
 console.log(user3.getDetails()); // Output: "Dave is a Admin"
+
+// Topic 7.3: Mixins
+// Mixin: Assigns reusable behavior properties onto object prototypes without subclassing
+const LoggableMixin = {
+  log(msg) {
+    console.log(`[LOG]: ${msg}`);
+  },
+};
+
+class UserProfile {
+  constructor(username) {
+    this.username = username;
+  }
+}
+
+// Mix properties onto class prototype
+Object.assign(UserProfile.prototype, LoggableMixin);
+
+const profile = new UserProfile("sarah123");
+
+profile.log("Profile loaded"); // Output: "[LOG]: Profile loaded"
