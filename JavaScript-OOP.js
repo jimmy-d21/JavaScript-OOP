@@ -418,3 +418,22 @@ Object.assign(UserProfile.prototype, LoggableMixin);
 const profile = new UserProfile("sarah123");
 
 profile.log("Profile loaded"); // Output: "[LOG]: Profile loaded"
+
+// Topic 7.4: Symbols in Object-Oriented Programming
+// Symbol: Unique, non-string property key preventing collisions and hidden from standard iterations
+const INTERNAL_ID = Symbol("internalId");
+
+class Record {
+  constructor(id) {
+    this[INTERNAL_ID] = id;
+  }
+
+  getId() {
+    return this[INTERNAL_ID];
+  }
+}
+
+const rec = new Record("REC_99");
+
+console.log(rec.getId()); // Output: "REC_99"
+console.log(Object.keys(rec)); // Output: [] (Invisible in standard key enumerations)
