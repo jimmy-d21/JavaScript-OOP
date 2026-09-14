@@ -358,3 +358,26 @@ const duck = createDuck("Donald");
 
 console.log(duck.fly()); // Output: "Donald is flying!"
 console.log(duck.swim()); // Output: "Donald is swimming!"
+
+// 7. Advanced OOP Concepts
+// Topic 7.1: Method Chaining
+// Method Chaining: Return 'this' from instance methods to enable dot-chained method calls
+class Calculator {
+  constructor(val = 0) {
+    this.val = val;
+  }
+
+  add(n) {
+    this.val += n;
+    return this; // Enable chaining
+  }
+
+  multiply(n) {
+    this.val *= n;
+    return this; // Enable chaining
+  }
+}
+
+const result = new Calculator(2).add(3).multiply(4).val;
+
+console.log(result); // Output: 20
