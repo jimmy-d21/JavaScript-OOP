@@ -108,3 +108,19 @@ Object.setPrototypeOf(rabbit, animal);
 console.log(rabbit.jumps); // Output: true
 console.log(rabbit.eats); // Output: true (Inherited via Prototype Chain)
 console.log(Object.getPrototypeOf(rabbit) === animal); // Output: true
+
+// Topic 3.3: Prototype Inheritance with Object.create()
+// Object.create(proto): Creates a new object explicitly linked to specified prototype object
+const UserProto = {
+  init(name) {
+    this.name = name;
+    return this;
+  },
+  greeting() {
+    return `Hi, I am ${this.name}`;
+  },
+};
+
+const user2 = Object.create(UserProto).init("Charlie");
+
+console.log(user2.greeting()); // Output: "Hi, I am Charlie"
