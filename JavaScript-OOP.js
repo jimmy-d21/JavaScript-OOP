@@ -141,3 +141,16 @@ class Vehicle {
 const car2 = new Vehicle("Car");
 
 console.log(car2.getType()); // Output: "Vehicle type: Car"
+
+// Topic 4.2: Static Methods and Static Properties
+// static: Defines properties/methods on the Class itself, NOT called on instances
+class MathUtils {
+  static PI = 3.14159;
+
+  static calculateArea(radius) {
+    return this.PI * radius * radius;
+  }
+}
+
+console.log(MathUtils.PI); // Output: 3.14159
+console.log(MathUtils.calculateArea(10)); // Output: 314.159
