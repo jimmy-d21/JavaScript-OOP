@@ -337,3 +337,24 @@ class Manager extends Employee {
 const mgr = new Manager("Alice", 90000, "Engineering");
 
 console.log(mgr.describe()); // Output: "Person: Alice, Salary: $90000"
+
+// Topic 6.2: Composition vs. Inheritance
+// Composition over Inheritance: Combine small functional behaviors instead of deep class inheritance trees
+const canFly = (state) => ({
+  fly: () => `${state.name} is flying!`,
+});
+
+const canSwim = (state) => ({
+  swim: () => `${state.name} is swimming!`,
+});
+
+// Composing objects dynamically
+function createDuck(name) {
+  const state = { name };
+  return { ...state, ...canFly(state), ...canSwim(state) };
+}
+
+const duck = createDuck("Donald");
+
+console.log(duck.fly()); // Output: "Donald is flying!"
+console.log(duck.swim()); // Output: "Donald is swimming!"
